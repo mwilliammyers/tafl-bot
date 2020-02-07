@@ -7,7 +7,7 @@ class Arena:
     An Arena class where any 2 agents can be pit against each other.
     """
 
-    def __init__(self, player1, player2, game, display=lambda x: x):
+    def __init__(self, player1, player2, game):
         """Initializes the Arena.
 
         Args:
@@ -20,7 +20,6 @@ class Arena:
         self.player1 = player1
         self.player2 = player2
         self.game = game
-        self.display = display
 
     def play_game(self, verbose=False):
         """Executes one episode of a game.
@@ -40,7 +39,7 @@ class Arena:
 
             if verbose:
                 print("Turn ", str(it), "Player ", str(curr_player))
-                self.display(board)
+                self.game.render()
 
             canonical_board = self.game.canonical_form(board, curr_player)
 
@@ -56,6 +55,6 @@ class Arena:
 
         if verbose:
             print(f"Game over: Turn {it} Result {self.game.game_ended(board, 1)}")
-            self.display(board)
+            self.game.render()
 
         return self.game.game_ended(board, 1)

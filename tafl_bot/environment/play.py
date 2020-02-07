@@ -4,7 +4,7 @@ Script to play any two agents against each other, or play manually with any agen
 import numpy as np
 
 from arena import Arena
-from game import Game, display
+from game import Game
 from players import *
 
 
@@ -15,4 +15,4 @@ g = Game("Tablut")
 gp = GreedyPlayer(g).play
 hp = HumanPlayer(g).play
 
-Arena(hp, gp, g, display=display).play_game(verbose=True)
+Arena(hp, gp, g).play_game(verbose=True)

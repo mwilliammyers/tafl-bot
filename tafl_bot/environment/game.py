@@ -148,34 +148,30 @@ class Game:
             return 1000 * board.done * player
         return board.count_diff(player)
 
+    def __str__(self):
+        render_chars = {
+            -1: "b",
+            0: " ",
+            1: "W",
+            2: "K",
+            10: "#",
+            12: "E",
+            20: "_",
+            22: "x",
+        }
 
-def display(board):
-    render_chars = {
-        "-1": "b",
-        "0": " ",
-        "1": "W",
-        "2": "K",
-        "10": "#",
-        "12": "E",
-        "20": "_",
-        "22": "x",
-    }
+        image = self.board.image()
 
-    print("---------------------")
+        s = f"   {' '.join(str(i) for i in range(len(image)))}"
+        for i in range(len(image) - 1, -1, -1):
+            s += f"\n{i:2}"
+            for col in image[i]:
+                s += f" {render_chars[col]}"
 
-    image = board.image()
+        return s
 
-    print("  ", " ".join(str(i) for i in range(len(image))))
-    for i in range(len(image) - 1, -1, -1):
-        print("{:2}".format(i), end=" ")
-
-        row = image[i]
-        for col in row:
-            c = render_chars[str(col)]
-            print(c, end=" ")
-        print(" ")
-
-    print("---------------------")
+    def render(self):
+        print("---------------------", self, "---------------------", sep="\n")
 
 
 class Tafl:
