@@ -1,11 +1,13 @@
-# https://stackoverflow.com/questions/2267362/how-to-convert-an-integer-in-any-base-to-a-string
-
 import string
 
 digs = string.digits + string.ascii_letters
 
 
 def int2base(x, base, length):
+    """Converts an integer in any base to a string.
+    see: https://stackoverflow.com/a/2267446
+    """
+
     if x < 0:
         sign = -1
     elif x == 0:
@@ -79,4 +81,5 @@ def test():
         print(i, ":", int2base(i, size, 4))
 
 
-# test()
+if __name__ == "__main__":
+    test()
