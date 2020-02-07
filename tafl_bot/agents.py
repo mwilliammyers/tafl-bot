@@ -2,14 +2,12 @@ import sys
 
 import numpy as np
 
-from digits import int2base
 
-
-class RandomPlayer:
+class Random:
     def __init__(self, game):
         self.game = game
 
-    def play(self, board):
+    def act(self, board):
         a = np.random.randint(self.game.action_size())
         valids = self.game.valid_moves(board, board.player_to_move())
         while valids[a] != 1:
@@ -17,13 +15,15 @@ class RandomPlayer:
         return a
 
 
-class HumanPlayer:
+class Human:
     def __init__(self, game):
         import readline  # for fancy command-line I/O
 
         self.game = game
 
-    def play(self, board):
+    def act(self, board):
+        from utils import int2base
+
         valid_actions = self.game.valid_moves(board, board.player_to_move())
 
         print([int2base(i, self.game.n, 4) for i, v in enumerate(valid_actions) if v])
@@ -48,11 +48,11 @@ class HumanPlayer:
         return action
 
 
-class GreedyPlayer:
+class Greedy:
     def __init__(self, game):
         self.game = game
 
-    def play(self, board):
+    def act(self, board):
         valids = self.game.valid_moves(board, board.player_to_move())
         candidates = []
 

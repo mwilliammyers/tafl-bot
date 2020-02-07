@@ -23,7 +23,7 @@ class Board:
         return np.array(self.image()).astype(t)
 
     def copy(self):
-        from game import Tafl
+        from environment.board.variants import Tafl
 
         gv = Tafl()
         gv.size = self.size

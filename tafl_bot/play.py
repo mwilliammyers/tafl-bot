@@ -43,14 +43,10 @@ def play(game, player1, player2, verbose=False):
 
 
 if __name__ == "__main__":
-    from game import Game
-    from players import *
+    from environment import Env
+    import agents
 
-    g = Game("Tablut")
+    env = Env("Tablut")
 
-    # all players
-    # rp = RandomPlayer(g).play
-    gp = GreedyPlayer(g).play
-    hp = HumanPlayer(g).play
+    play(env, agents.Human(env).act, agents.Greedy(env).act, verbose=True)
 
-    play(g, hp, gp, verbose=True)
