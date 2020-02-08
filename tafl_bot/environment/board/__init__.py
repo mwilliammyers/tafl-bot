@@ -1,3 +1,8 @@
+"""
+Tafl game board.
+Modified from: https://github.com/suragnair/alpha-zero-general/blob/c2f5906/tafl/TaflLogic.py
+"""
+
 import numpy as np
 
 

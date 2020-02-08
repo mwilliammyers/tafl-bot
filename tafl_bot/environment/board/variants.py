@@ -1,3 +1,8 @@
+"""
+Tafl game variants.
+Modified from: https://github.com/suragnair/alpha-zero-general/blob/c2f5906/tafl/GameVariants.py
+"""
+
 class Tafl:
     """Base class to represent the different Tafl variants;
     see: https://en.wikipedia.org/wiki/Tafl_games
