@@ -16,7 +16,8 @@ A deep reinforcement learning based Hnefatafl bot.
 play an interactive game against a greedy agent:
 
 ```bash
-python3 tafl_bot/play.py
+# source .venv/bin/activate
+python3 play.py
 ```
 
 [python]: https://www.python.org
