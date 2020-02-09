@@ -6,7 +6,7 @@ A deep reinforcement learning based Hnefatafl bot.
 
 - [python]>=3.6
 - install the required [PyPi] packages:
-  ```
+  ```bash
   # python3 -m venv .venv && source .venv/bin/activate
   pip3 install -r requirements.txt
   ```
